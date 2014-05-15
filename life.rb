@@ -27,7 +27,7 @@ class Life < Window
       when KbSpace
          @pause = !@pause
       when MsLeft
-         @map.clicked(mouse_x, mouse_y) if @pause
+         @map.clicked(mouse_x, mouse_y, false) if @pause
       when KbR
          @map.reset
       end
@@ -38,6 +38,10 @@ class Life < Window
          if @tmr.time > 200
             @map.update
             @tmr.reset
+         end
+      else
+         if button_down?(MsRight)
+            @map.clicked(mouse_x, mouse_y, true)
          end
       end
    end

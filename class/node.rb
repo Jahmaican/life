@@ -10,6 +10,10 @@ class Node
         @alive = !@alive
     end
     
+    def live
+        @alive = true
+    end
+    
     def alive?
         @alive
     end

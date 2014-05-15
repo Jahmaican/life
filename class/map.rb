@@ -7,8 +7,12 @@ class Map
         reset
     end
     
-    def clicked(x, y)
-        @map[(x.fdiv(@rat_x)).to_i][(y.fdiv(@rat_y)).to_i].inverse
+    def clicked(x, y, continous)
+        if continous
+            @map[(x.fdiv(@rat_x)).to_i][(y.fdiv(@rat_y)).to_i].live
+        else
+            @map[(x.fdiv(@rat_x)).to_i][(y.fdiv(@rat_y)).to_i].inverse
+        end
         paint
     end
     
